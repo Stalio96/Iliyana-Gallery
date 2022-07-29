@@ -41,8 +41,6 @@ export async function logout(token) {
             'X-Authorization': token
         }
     });
-
-    return response.json();
 } 
 
 export function getUSer() {

@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../contexts/AuthContext";
 
 import * as authService from '../../services/authService';
 
 const Register = () => {
+    const { login } = useAuthContext();
     const navigate = useNavigate();
 
     const onRegisterHandler = (e) => {
@@ -14,10 +16,10 @@ const Register = () => {
         const password = formData.get('password');
 
         authService.register(email, password)
-        .then(authData => {
-            console.log(authData)
-            navigate('/home');
-        })
+            .then(authData => {
+                login(authData)
+                navigate('/home');
+            })
     }
     return (
         <form className="register" onSubmit={onRegisterHandler} method="POST">
@@ -44,7 +46,7 @@ const Register = () => {
                     </span>
                 </div>
 
-                <input type="submit" value="Register"/>
+                <input type="submit" value="Register" />
             </fieldset>
         </form>
     );

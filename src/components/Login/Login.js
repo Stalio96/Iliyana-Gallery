@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../contexts/AuthContext";
 
 import * as authService from '../../services/authService';
 
 const Login = () => {
+    const { login } = useAuthContext();
     const navigate = useNavigate();
 
     const onLoginHandler = (e) => {
@@ -15,6 +17,7 @@ const Login = () => {
 
         authService.login(email, password)
             .then((authData) => {
+                login(authData)
                 navigate('/home')
             });
     }
