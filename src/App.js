@@ -2,16 +2,18 @@ import { Route, Routes } from 'react-router-dom';
 
 import './App.css';
 
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Home from './components/Home';
+import Gallery from './components/Gallery';
 import Contacts from './components/Contacts';
 import Create from './components/Create';
+import Edit from './components/Edit/Edit';
 import Details from './components/Details';
-import Footer from './components/Footer';
-import Gallery from './components/Gallery';
-import Header from './components/Header';
-import Home from './components/Home';
 import Login from './components/Login';
-import Logout from './components/Logout';
 import Register from './components/Register';
+import Logout from './components/Logout';
+
 import { AuthProvider } from './contexts/AuthContext';
 
 function App() {
@@ -30,6 +32,7 @@ function App() {
             <Route path='/details/:photoId' element={<Details />} />
             <Route path='/contacts' element={<Contacts />} />
             <Route path='/create' element={<Create />} />
+            <Route path='/edit/:photoId' element={<Edit />} />
           </Routes>
         </main>
 

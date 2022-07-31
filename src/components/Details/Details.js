@@ -20,7 +20,7 @@ const Details = () => {
 
     const owner = (
         <>
-            <button>EDIT</button>
+            <Link to={`/edit/${photoId}`}>EDIT</Link>
             <button>DELETE</button>
         </>
     );
