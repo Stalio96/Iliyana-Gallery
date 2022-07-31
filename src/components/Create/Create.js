@@ -1,8 +1,10 @@
 import { useNavigate } from 'react-router-dom';
+import { useAuthContext } from "../../contexts/AuthContext";
 
 import * as photoService from '../../services/photoService';
 
 const Create = () => {
+    const { user } = useAuthContext();
     const navigate = useNavigate();
 
     const onCreateHandler = (e) => {
@@ -15,13 +17,15 @@ const Create = () => {
         const img = formData.get('image');
         const description = formData.get('description');
         const album = formData.get('album');
+        const ownerId = user._id;
 
         photoService.create({
             name,
             date,
             img,
             description,
-            album
+            album,
+            ownerId
         })
             .then(result => {
                 navigate('/gallery');

@@ -7,24 +7,46 @@ import * as photoService from '../../services/photoService';
 
 const Details = () => {
     const navigate = useNavigate();
-    // const { user } = useAuthContext();
+    const { user } = useAuthContext();
     const { photoId } = useParams();
     const [photo, setPhoto] = useState();
 
     useEffect(() => {
         photoService.getById(photoId)
-        .then(photoData => {
-            setPhoto(photoData);
-        });
+            .then(photoData => {
+                setPhoto(photoData);
+            });
     }, []);
 
+    const owner = (
+        <>
+            <button>EDIT</button>
+            <button>DELETE</button>
+        </>
+    );
+
+    const guest = (
+        <>
+            <button>LIKE</button>
+            <button>DISLIKE</button>
+        </>
+    );
+
     return (
-        <div>
-            <h1>Name: {photo?.name}</h1>
-            <img src={photo?.img} />
-            <p>Description: {photo?.description}</p>
-            <p>Owner: {photo?.owner}</p>
-        </div>
+        <>
+            <div>
+                <h1>Name: {photo?.name}</h1>
+                <img src={photo?.img} />
+                <p>Description: {photo?.description}</p>
+                <p>Owner: {photo?.owner}</p>
+            </div>
+
+            {
+                user._id == photo?.owner
+                    ? owner
+                    : guest
+            }
+        </>
     );
 }
 
