@@ -31,17 +31,42 @@ export async function create(photoData, token) {
     return result;
 }
 
-export async function edit(photoId, photoData, token) {
+export async function edit(photoId, photoData) {
     const response = await fetch(`${baseUrl}/data/catalog/edit/${photoId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
-            'X-Authorization': token
+            'X-Authorization': getToken()
         },
-        body: JSON.stringify(photoId, photoData)
+        body: JSON.stringify(photoData)
     });
 
     const result = await response.json();
 
     return result;
+}
+
+export async function destroy(photoId) {
+    const response = await fetch(`${baseUrl}/data/catalog/delete/${photoId}`, {
+        method: 'DELETE',
+        headers: {
+            'X-Authorization': getToken()
+        }
+    });
+}
+
+function getToken() {
+    try {
+        let userItem = localStorage.getItem('user')
+
+        if(!userItem){
+            throw {message: 'You must be authenticated'}
+        }
+
+        let user = JSON.parse(userItem);
+
+        return user.accessToken;
+    } catch (err) {
+        console.log(err);
+    }
 }

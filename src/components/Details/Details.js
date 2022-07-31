@@ -18,10 +18,19 @@ const Details = () => {
             });
     }, []);
 
+    const deleteHandler = (e) => {
+        e.preventDefault();
+
+        photoService.destroy(photoId)
+        .then(() => {
+            navigate('/gallery');
+        })
+    }
+
     const owner = (
         <>
             <Link to={`/edit/${photoId}`}>EDIT</Link>
-            <button>DELETE</button>
+            <Link to={`/delete/${photoId}`} onClick={deleteHandler}>DELETE</Link>
         </>
     );
 
