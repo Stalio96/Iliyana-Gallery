@@ -30,3 +30,18 @@ export async function create(photoData, token) {
 
     return result;
 }
+
+export async function edit(photoId, photoData, token) {
+    const response = await fetch(`${baseUrl}/data/catalog/edit/${photoId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Authorization': token
+        },
+        body: JSON.stringify(photoId, photoData)
+    });
+
+    const result = await response.json();
+
+    return result;
+}
