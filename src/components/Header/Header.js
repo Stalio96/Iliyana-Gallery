@@ -42,6 +42,7 @@ const Header = () => {
             <ul className="header__items">
                 <li className="header__item">
                     <Link className="item__link" to="/home">Home</Link>
+                    <Link className="item__link" to="/search"><i className="fa-solid fa-magnifying-glass"></i></Link>
                 </li>
                 {user.email
                     ? client

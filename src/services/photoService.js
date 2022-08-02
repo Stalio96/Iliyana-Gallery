@@ -16,6 +16,14 @@ export async function getById(photoId) {
     return result;
 }
 
+export async function search() {
+    const response = await fetch(`${baseUrl}/data/catalog/search`);
+
+    const result = await response.json();
+
+    return result;
+}
+
 export async function create(photoData, token) {
     const response = await fetch(`${baseUrl}/data/catalog/create`, {
         method: 'POST',

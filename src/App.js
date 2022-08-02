@@ -9,6 +9,7 @@ import Gallery from './components/Gallery';
 import Contacts from './components/Contacts';
 import Create from './components/Create';
 import Edit from './components/Edit/Edit';
+import Search from './components/Search';
 import Details from './components/Details';
 import Login from './components/Login';
 import Register from './components/Register';
@@ -32,6 +33,7 @@ function App() {
             <Route path='/details/:photoId' element={<Details />} />
             <Route path='/contacts' element={<Contacts />} />
             <Route path='/create' element={<Create />} />
+            <Route path='/search' element={<Search />} />
             <Route path='/edit/:photoId' element={<Edit />} />
           </Routes>
         </main>
