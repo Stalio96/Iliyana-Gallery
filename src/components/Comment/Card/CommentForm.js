@@ -13,7 +13,7 @@ const CommentForm = () => {
 
         const formData = new FormData(e.currentTarget);
 
-        const comment = formData.get('comment');
+        let comment = formData.get('comment');
         const ownerId = user._id;
 
         commentService.createComment({
@@ -21,7 +21,7 @@ const CommentForm = () => {
             ownerId,
             photoId
         }).then(() => {
-            navigate(`/details/${photoId}`);
+            e.target.reset();
         });
 
     }

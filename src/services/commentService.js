@@ -23,6 +23,15 @@ export async function getComments(photoId) {
     return result;
 }
 
+export async function deleteComment(commentId) {
+    const response = await fetch(`${baseUrl}/data/catalog/comment/${commentId}`, {
+        method: 'DELETE',
+        headers: {
+            'X-Authorization': getToken()
+        }
+    });
+}
+
 
 function getToken() {
     try {

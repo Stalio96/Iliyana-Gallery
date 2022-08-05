@@ -19,13 +19,13 @@ const Edit = () => {
     const onEditHandler = (e) => {
         e.preventDefault();
 
-        const photoData = new FormData(e.currentTraget);
+        const formData = new FormData(e.currentTarget);
 
-        const name = photoData.get('name');
-        const date = photoData.get('date');
-        const img = photoData.get('img');
-        const description = photoData.get('description');
-        const album = photoData.get('album');
+        const name = formData.get('name');
+        const date = formData.get('date');
+        const img = formData.get('img');
+        const description = formData.get('description');
+        const album = formData.get('album');
 
             photoService.edit(photoId, {
                 name,
@@ -55,10 +55,10 @@ const Edit = () => {
                         <input name="date" type="text" defaultValue={photo.date} placeholder="" />
                     </span>
                 </div>
-                <div className="image">
-                    <label htmlFor="image">Image</label>
+                <div className="img">
+                    <label htmlFor="img">Image</label>
                     <span className="input">
-                        <input name="image" type="text" defaultValue={photo.image} placeholder="" />
+                        <input name="img" type="text" defaultValue={photo.img} placeholder="" />
                     </span>
                 </div>
                 <div className="description">

@@ -25,7 +25,7 @@ const Details = () => {
             .then(comment => {
                 setComments(comment);
             });
-    }, []);
+    }, [comments]);
 
     // const commentHandler = (e) => {
     //     e.preventDefault();

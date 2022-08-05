@@ -1,12 +1,23 @@
+import * as commentService from '../../../services/commentService';
+import { useNavigate } from "react-router-dom";
+
 const CommentCard = ({
     comment,
     userId
 }) => {
+    const navigate = useNavigate();
+
+    const deleteHandler = () => {
+        commentService.deleteComment(comment._id)
+        .then(() => {
+            // navigate('/gallery');
+        })
+    } 
 
     const author = (
         <>
             <button>Edit</button>
-            <button>Delete</button>
+            <button onClick={deleteHandler}>Delete</button>
         </>
     )
 
