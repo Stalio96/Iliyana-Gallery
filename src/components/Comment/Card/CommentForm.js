@@ -1,10 +1,11 @@
+import { useParams, useNavigate } from "react-router-dom";
+
 import { useAuthContext } from '../../../contexts/AuthContext';
 import * as commentService from '../../../services/commentService';
 
-const CommentForm = ({
-    photoId
-}) => {
+const CommentForm = () => {
     const { user } = useAuthContext();
+    const { photoId } = useParams();
     console.log(photoId);
 
     const commentHandler = (e) => {
