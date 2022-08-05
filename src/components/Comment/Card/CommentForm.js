@@ -1,8 +1,12 @@
 import { useAuthContext } from '../../../contexts/AuthContext';
+import * as commentService from '../../../services/commentService';
 
-const CommentForm = () => {
+const CommentForm = ({
+    photoId
+}) => {
     const { user } = useAuthContext();
-    
+    console.log(photoId);
+
     const commentHandler = (e) => {
         e.preventDefault();
 
@@ -11,18 +15,21 @@ const CommentForm = () => {
         const comment = formData.get('comment');
         const ownerId = user._id;
 
+
         commentService.createComment({
             comment,
             ownerId,
             photoId
         }).then(commentData => {
-                console.log(commentData)
+
         });
+
+
     }
 
     return (
         <div className="comment">
-            <form onClick={commentHandler} method="POST">
+            <form onSubmit={commentHandler} method="POST">
                 <textarea type="text" name="comment" />
                 <button type="submit">Add comment</button>
             </form>

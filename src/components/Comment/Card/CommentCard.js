@@ -1,9 +1,12 @@
-const CommentCard = () => {
+const CommentCard = ({
+    comments
+}) => {
+    console.log(comments)
 
     return (
         <div>
-            <h3>User: </h3>
-            <p></p>
+            <h3>User: {comments?.ownerId}</h3>
+            <p>Comment: {comments?.comment}</p>
         </div>
     );
 }

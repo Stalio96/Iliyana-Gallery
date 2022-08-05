@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 
 import { useAuthContext } from '../../contexts/AuthContext';
 
+import Comment from "../Comment";
+
 import * as photoService from '../../services/photoService';
 import * as commentService from '../../services/commentService';
 
@@ -11,6 +13,7 @@ const Details = () => {
     const { user } = useAuthContext();
     const { photoId } = useParams();
     const [photo, setPhoto] = useState();
+    const [comments, setComments] = useState([]);
 
     useEffect(() => {
         photoService.getById(photoId)
@@ -20,26 +23,27 @@ const Details = () => {
 
         commentService.getComments(photoId)
             .then(comment => {
-                console.log(comment);
+                console.log(comment)
+                setComments(comment);
             });
     }, []);
 
-    const commentHandler = (e) => {
-        e.preventDefault();
+    // const commentHandler = (e) => {
+    //     e.preventDefault();
 
-        const formData = new FormData(e.currentTarget);
+    //     const formData = new FormData(e.currentTarget);
 
-        const comment = formData.get('comment');
-        const ownerId = user._id;
+    //     const comment = formData.get('comment');
+    //     const ownerId = user._id;
 
-        commentService.createComment({
-            comment,
-            ownerId,
-            photoId
-        }).then(commentData => {
-            console.log(commentData)
-        });
-    }
+    //     commentService.createComment({
+    //         comment,
+    //         ownerId,
+    //         photoId
+    //     }).then(commentData => {
+    //         console.log(commentData)
+    //     });
+    // }
 
     const deleteHandler = (e) => {
         e.preventDefault();
@@ -79,13 +83,13 @@ const Details = () => {
                     : guest
             }
 
-
-            <div className="comment">
+            <Comment comments={comments} photoId={photoId} />
+            {/* <div className="comment">
                 <form onClick={commentHandler} method="POST">
                     <textarea type="text" name="comment" />
                     <button type="submit">Add comment</button>
                 </form>
-            </div>
+            </div> */}
         </>
     );
 }
