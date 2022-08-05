@@ -15,6 +15,14 @@ export async function createComment(commentData) {
     return result;
 }
 
+export async function getComments(photoId) {
+    const response = await fetch(`${baseUrl}/data/catalog/comment/${photoId}`);
+
+    const result = await response.json();
+
+    return result;
+}
+
 
 function getToken() {
     try {

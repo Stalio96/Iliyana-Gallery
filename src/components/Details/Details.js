@@ -17,6 +17,11 @@ const Details = () => {
             .then(photoData => {
                 setPhoto(photoData);
             });
+
+        commentService.getComments(photoId)
+            .then(comment => {
+                console.log(comment);
+            });
     }, []);
 
     const commentHandler = (e) => {
@@ -32,7 +37,7 @@ const Details = () => {
             ownerId,
             photoId
         }).then(commentData => {
-                console.log(commentData)
+            console.log(commentData)
         });
     }
 
