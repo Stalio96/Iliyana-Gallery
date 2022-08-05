@@ -4,9 +4,9 @@ import { useAuthContext } from '../../../contexts/AuthContext';
 import * as commentService from '../../../services/commentService';
 
 const CommentForm = () => {
+    const navigate = useNavigate();
     const { user } = useAuthContext();
     const { photoId } = useParams();
-    console.log(photoId);
 
     const commentHandler = (e) => {
         e.preventDefault();
@@ -16,15 +16,13 @@ const CommentForm = () => {
         const comment = formData.get('comment');
         const ownerId = user._id;
 
-
         commentService.createComment({
             comment,
             ownerId,
             photoId
-        }).then(commentData => {
-
+        }).then(() => {
+            navigate(`/details/${photoId}`);
         });
-
 
     }
 

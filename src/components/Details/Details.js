@@ -23,7 +23,6 @@ const Details = () => {
 
         commentService.getComments(photoId)
             .then(comment => {
-                console.log(comment)
                 setComments(comment);
             });
     }, []);
@@ -83,7 +82,7 @@ const Details = () => {
                     : guest
             }
 
-            <Comment comments={comments} photoId={photoId} />
+            <Comment comments={comments} userId={user._id} />
             {/* <div className="comment">
                 <form onClick={commentHandler} method="POST">
                     <textarea type="text" name="comment" />

@@ -2,12 +2,13 @@ import CommentCard from "./Card/CommentCard";
 import CommentForm from "./Card/CommentForm";
 
 const Comment = ({
-    comments
+    comments,
+    userId
 }) => {
 
     return (
         <div>
-            {comments.map(x => <CommentCard comments={x} key={x._id} />)}
+            {comments.map(x => <CommentCard comment={x} userId={userId} key={x._id} />)}
             
             <CommentForm />
         </div>

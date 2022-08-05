@@ -1,12 +1,24 @@
 const CommentCard = ({
-    comments
+    comment,
+    userId
 }) => {
-    console.log(comments)
+
+    const author = (
+        <>
+            <button>Edit</button>
+            <button>Delete</button>
+        </>
+    )
 
     return (
         <div>
-            <h3>User: {comments?.ownerId}</h3>
-            <p>Comment: {comments?.comment}</p>
+            <h3>User: {comment?.ownerId}</h3>
+            <p>Comment: {comment?.comment}</p>
+
+            {userId == comment.ownerId
+                ? author
+                : null
+            }
         </div>
     );
 }
