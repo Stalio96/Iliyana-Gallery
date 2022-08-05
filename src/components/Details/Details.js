@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useAuthContext } from '../../contexts/AuthContext';
 
 import * as photoService from '../../services/photoService';
+import * as commentService from '../../services/commentService';
 
 const Details = () => {
     const navigate = useNavigate();
@@ -18,13 +19,30 @@ const Details = () => {
             });
     }, []);
 
+    const commentHandler = (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.currentTarget);
+
+        const comment = formData.get('comment');
+        const ownerId = user._id;
+
+        commentService.createComment({
+            comment,
+            ownerId,
+            photoId
+        }).then(commentData => {
+                console.log(commentData)
+        });
+    }
+
     const deleteHandler = (e) => {
         e.preventDefault();
 
         photoService.destroy(photoId)
-        .then(() => {
-            navigate('/gallery');
-        })
+            .then(() => {
+                navigate('/gallery');
+            })
     }
 
     const owner = (
@@ -55,6 +73,14 @@ const Details = () => {
                     ? owner
                     : guest
             }
+
+
+            <div className="comment">
+                <form onClick={commentHandler} method="POST">
+                    <textarea type="text" name="comment" />
+                    <button type="submit">Add comment</button>
+                </form>
+            </div>
         </>
     );
 }
