@@ -17,7 +17,7 @@ export async function getById(photoId) {
 }
 
 export async function search(photo) {
-    const response = await fetch(`${baseUrl}/data/catalog/search?brand=${photo}`);
+    const response = await fetch(`${baseUrl}/data/catalog/search?name=${photo}`);
 
     const result = await response.json();
 

@@ -17,6 +17,7 @@ const Register = () => {
 
         authService.register(email, password)
             .then(authData => {
+                console.log(authData)
                 login(authData)
                 navigate('/home');
             })

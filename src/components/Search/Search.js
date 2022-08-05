@@ -14,6 +14,7 @@ const Search = () => {
 
         photoService.search(search)
             .then(photoData => {
+                console.log(photoData)
                 setSearch(photoData)
             });
     }
