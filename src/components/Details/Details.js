@@ -82,7 +82,7 @@ const Details = () => {
 
             {user.email == ''
                 ? null
-                : user._id == photo?.owner
+                : user._id == photo?.owner._id
                     ? owner
                     : guest
             }
