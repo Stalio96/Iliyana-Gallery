@@ -3,14 +3,18 @@ import CommentForm from "./Card/CommentForm";
 
 const Comment = ({
     comments,
-    userId
+    userId,
+    user
 }) => {
 
     return (
         <div>
             {comments.map(x => <CommentCard comment={x} userId={userId} key={x._id} />)}
-            
-            <CommentForm />
+
+            {user
+                ? <CommentForm />
+                : null
+            }
         </div>
     );
 }

@@ -15,6 +15,7 @@ const Details = () => {
     const [photo, setPhoto] = useState();
     const [comments, setComments] = useState([]);
 
+
     useEffect(() => {
         photoService.getById(photoId)
             .then(photoData => {
@@ -76,13 +77,15 @@ const Details = () => {
                 <p>Owner: {photo?.owner}</p>
             </div>
 
-            {
-                user._id == photo?.owner
+
+            {user.email == ''
+                ? null
+                : user._id == photo?.owner
                     ? owner
                     : guest
             }
 
-            <Comment comments={comments} userId={user._id} />
+            <Comment comments={comments} userId={user._id} user={user.email} />
             {/* <div className="comment">
                 <form onClick={commentHandler} method="POST">
                     <textarea type="text" name="comment" />
