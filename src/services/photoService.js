@@ -62,6 +62,42 @@ export async function destroy(photoId) {
     });
 }
 
+export async function like(photoId, userId){
+    const response = await fetch(`${baseUrl}/data/catalog/like/${photoId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({userId})
+    });
+
+    const result = response.json();
+
+    return result;
+}
+
+export async function disLike(photoId, userId){
+    const response = await fetch(`${baseUrl}/data/catalog/dislike/${photoId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({userId})
+    });
+
+    const result = response.json();
+
+    return result;
+}
+
+export async function getMyPhoto(userId) {
+    const response = await fetch(`${baseUrl}/data/catalog/profile/${userId}`);
+
+    const result =  response.json();
+
+    return result;
+}
+
 function getToken() {
     try {
         let userItem = localStorage.getItem('user')

@@ -42,10 +42,10 @@ const CommentCard = ({
 
     return (
         <div>
-            <h3>User: {comment?.ownerId}</h3>
+            <h3>User: {comment?.ownerId.email}</h3>
             <p>Comment: {comment?.comment}</p>
 
-            {userId == comment.ownerId
+            {userId == comment.ownerId._id
                 ? author
                 : null
             }

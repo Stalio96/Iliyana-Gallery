@@ -1,5 +1,5 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import { useAuthContext } from '../../contexts/AuthContext';
 
@@ -16,18 +16,24 @@ const Details = () => {
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
-        photoService.getById(photoId)
-            .then(photoData => {
-                setPhoto(photoData);
-            });
-
         commentService.getComments(photoId)
             .then(comment => {
                 setComments(comment);
             });
-    }, [comments]);
+    }, []);
 
-    
+    useEffect(() => {
+        photoService.getById(photoId)
+        .then(photoData => {
+            // console.log(photoData)
+            setPhoto(photoData);
+        });
+
+        photoService.getMyPhoto(user._id)
+        .then(data => {
+            // console.log(data)
+        }) 
+    }, [])
 
     const deleteHandler = (e) => {
         e.preventDefault();
@@ -70,7 +76,7 @@ const Details = () => {
                 <h1>Name: {photo?.name}</h1>
                 <img src={photo?.img} />
                 <p>Description: {photo?.description}</p>
-                <p>Owner: {photo?.owner}</p>
+                <p>Owner: {photo?.owner.email}</p>
             </div>
 
 
