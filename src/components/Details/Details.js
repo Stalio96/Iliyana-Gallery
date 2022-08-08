@@ -15,7 +15,6 @@ const Details = () => {
     const [photo, setPhoto] = useState();
     const [comments, setComments] = useState([]);
 
-
     useEffect(() => {
         photoService.getById(photoId)
             .then(photoData => {
@@ -28,22 +27,7 @@ const Details = () => {
             });
     }, [comments]);
 
-    // const commentHandler = (e) => {
-    //     e.preventDefault();
-
-    //     const formData = new FormData(e.currentTarget);
-
-    //     const comment = formData.get('comment');
-    //     const ownerId = user._id;
-
-    //     commentService.createComment({
-    //         comment,
-    //         ownerId,
-    //         photoId
-    //     }).then(commentData => {
-    //         console.log(commentData)
-    //     });
-    // }
+    
 
     const deleteHandler = (e) => {
         e.preventDefault();
@@ -52,6 +36,18 @@ const Details = () => {
             .then(() => {
                 navigate('/gallery');
             })
+    }
+
+    const likeHandler = (e) => {
+        e.preventDefault();
+
+        photoService.like(photoId, user._id)
+    }
+
+    const disLikeHandler = (e) => {
+        e.preventDefault();
+
+        photoService.disLike(photoId, user._id)
     }
 
     const owner = (
@@ -63,8 +59,8 @@ const Details = () => {
 
     const guest = (
         <>
-            <button>LIKE</button>
-            <button>DISLIKE</button>
+            <button onClick={likeHandler}>Add to favorite</button>
+            <button onClick={disLikeHandler}>Remove from favorite</button>
         </>
     );
 
