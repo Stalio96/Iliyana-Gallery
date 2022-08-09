@@ -2,6 +2,8 @@ import * as photoService from '../../services/photoService';
 import { useState } from 'react';
 import PhotoCard from '../Gallery/PhotoCard/PhotoCard';
 
+import './Search.css';
+
 const Search = () => {
     const [search, setSearch] = useState([]);
 
@@ -14,32 +16,33 @@ const Search = () => {
 
         photoService.search(search)
             .then(photoData => {
-                console.log(photoData)
                 setSearch(photoData)
             });
     }
 
     return (
-        <>
-            <form onClick={onSearch}>
+        <div className="search">
+            <form className="search__from" onClick={onSearch}>
                 <div className="search">
-                    <label htmlFor="search">Search</label>
+                    <label className="search__label" htmlFor="search">Search</label>
                     <span className="input">
-                        <input name="search" type="text" placeholder="Enter a photo name..." />
+                        <input className="input__search" name="search" type="text" placeholder="Enter a photo name..." />
                     </span>
-                    <button type="submit">SEARCH</button>
+                    <button className="submit__btn" type="submit">SEARCH</button>
                 </div>
             </form>
 
-            <p>Result</p>
+            <div className="result">
+                <p>Result</p>
 
-            {search.length > 0
-                ? <ul>
-                    {search.map(x => <PhotoCard key={x._id} photo={x} />)}
-                </ul>
-                : <p>No photos found!</p>
-            }
-        </>
+                {search.length > 0
+                    ? <ul>
+                        {search.map(x => <PhotoCard key={x._id} photo={x} />)}
+                    </ul>
+                    : <p>No photos found!</p>
+                }
+            </div>
+        </div>
     );
 }
 

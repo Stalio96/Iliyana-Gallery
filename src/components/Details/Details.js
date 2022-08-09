@@ -74,7 +74,7 @@ const Details = () => {
                 <h1>Name: {photo?.name}</h1>
                 <img src={photo?.img} />
                 <p>Description: {photo?.description}</p>
-                <p>Owner: {photo?.owner.email}</p>
+                <p>Author: {photo?.owner.email}</p>
             </div>
 
 
