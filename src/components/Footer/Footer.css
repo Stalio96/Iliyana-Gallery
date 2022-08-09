@@ -1,9 +1,11 @@
 footer {
     background-color: #70726c;
 
-    padding: 20px;
+    padding: 20px 0px;
 
     gap: 50px;
+
+    height: 180px;
 }
 
 .footer__container {

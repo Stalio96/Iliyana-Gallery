@@ -3,6 +3,8 @@ import { useAuthContext } from "../../contexts/AuthContext";
 
 import * as authService from '../../services/authService';
 
+import './Login.css';
+
 const Login = () => {
     const { login } = useAuthContext();
     const navigate = useNavigate();
@@ -23,24 +25,24 @@ const Login = () => {
     }
     return (
         <form className="login" onSubmit={onLoginHandler} method="POST">
-            <fieldset>
+            <div className="field">
                 <legend>Login Form</legend>
-                <div className="email">
-                    <label htmlFor="email">Email</label>
+                <div className="username">
+                    <label className="user__label" htmlFor="username">Username</label>
                     <span className="input">
-                        <input name="email" type="text" placeholder="" />
+                        <input name="email" type="text" placeholder="Type username..." />
                     </span>
                 </div>
 
                 <div className="password">
-                    <label htmlFor="password">Password</label>
+                    <label className="pass__label" htmlFor="password">Password</label>
                     <span className="input">
-                        <input name="password" type="password" placeholder="" />
+                        <input name="password" type="password" placeholder="Type password.." />
                     </span>
                 </div>
 
-                <input type="submit" value="Login" />
-            </fieldset>
+                <input className="submit__btn" type="submit" value="Login" />
+            </div>
         </form>
     );
 }

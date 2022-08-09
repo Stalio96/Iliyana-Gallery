@@ -1,0 +1,111 @@
+.login {
+    height: 562px;
+
+    width: 100%;
+
+    padding-top: 50px;
+}
+
+.field {
+    background-color: #000002;
+
+    display: inline-block;
+
+    margin: 0px 700px;
+
+    padding: 40px 25px;
+
+    height: 400px;
+    width: 450px;
+
+    border-radius: 25px;
+}
+
+legend {
+    font-weight: 600;
+    font-size: 28px;
+
+    color: white;
+
+    margin-bottom: 50px;
+}
+
+.username,
+.password {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 50px;
+
+    width: 100%;
+}
+
+.user__label {
+    font-weight: 500;
+    font-size: 25px;
+
+    margin-bottom: 10px;
+
+    color: white;
+
+}
+
+.pass__label {
+    font-weight: 500;
+    font-size: 25px;
+
+    margin-bottom: 10px;
+
+    color: white;
+}
+
+input {
+    width: 97%;
+    height: 30px;
+
+    border: 1px solid white;
+
+    border-radius: 2px;
+
+    background-color: unset;
+
+    padding: 2px 5px;
+
+    color: white;
+}
+
+::placeholder {
+    color: white;
+    opacity: 100;
+}
+
+.submit__btn {
+    width: 150px;
+    height: 50px;
+
+    display: block;
+
+    margin: 0 auto;
+
+    border: none;
+    border-radius: 50px;
+
+    cursor: pointer;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    background-color: #ffe624;
+
+    color: #000002;
+
+    transition: all 400ms ease-in-out;
+}
+
+.submit__btn:hover {
+    border: 2px solid white;
+
+    background-color: #000002;
+
+    color: white;
+}
