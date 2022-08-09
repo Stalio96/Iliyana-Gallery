@@ -19,7 +19,7 @@ const Header = () => {
 
     const client = (
         <>
-            <li className="header__item">Welcome, {user.email}</li>
+            <li className="header__item name">Welcome, {user.email}</li>
             <li className="header__item">
                 <Link className="item__link" to="/contacts">Contacts</Link>
             </li>
@@ -37,7 +37,7 @@ const Header = () => {
 
     return (
         <header className="header">
-            <button>button</button>
+            <button className="bars"><i class="fa-solid fa-bars"></i></button>
             <Link className="header__title" to="/home">Iliyana's photos</Link>
             <ul className="header__items">
                 <li className="header__item">
