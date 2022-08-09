@@ -1,5 +1,37 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css');
 
+.contacts__container {
+    height: 562px;
+
+    width: 100%;
+
+    padding-top: 50px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.contacts__heading {
+    display: block;
+    margin: 0 auto;
+
+    font-size: 60px;
+
+    margin-bottom: 40px;
+}
+
+.contacts__work {
+    display: block;
+    margin: 0 auto;
+
+    font-size: 40px;
+
+    color: #70726c;
+
+    text-transform: uppercase;
+
+    margin-bottom: 60px;
+}
 
 .contacts__items {
     display: flex;
@@ -13,10 +45,13 @@
 
 .contacts__item {
     list-style: none;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    font-size: 25px;
 }
 
 .contacts__circle {
@@ -25,7 +60,7 @@
     border: 1px solid black;
     border-radius: 50px;
 
-    padding: 15px 20px;
+    padding: 35px 40px;
 }
 
 .contacts__item p {

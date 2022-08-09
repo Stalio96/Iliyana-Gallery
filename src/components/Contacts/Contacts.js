@@ -6,7 +6,7 @@ const Contacts = () => {
         <div className="contacts__container">
             <h2 className="contacts__heading">Contacts</h2>
 
-            <p>Let's work together!</p>
+            <p className="contacts__work">Let's work together!</p>
 
             <ul className="contacts__items">
                 <li className="contacts__item">
