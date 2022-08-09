@@ -3,6 +3,8 @@ import { useAuthContext } from "../../contexts/AuthContext";
 
 import * as authService from '../../services/authService';
 
+import './Register.css';
+
 const Register = () => {
     const { login } = useAuthContext();
     const navigate = useNavigate();
@@ -12,43 +14,42 @@ const Register = () => {
 
         const formData = new FormData(e.currentTarget);
 
-        const email = formData.get('email');
+        const email = formData.get('username');
         const password = formData.get('password');
 
         authService.register(email, password)
             .then(authData => {
-                console.log(authData)
                 login(authData)
                 navigate('/home');
             })
     }
     return (
         <form className="register" onSubmit={onRegisterHandler} method="POST">
-            <fieldset>
+            <div className="field">
                 <legend>Register Form</legend>
-                <div className="email">
-                    <label htmlFor="email">Email</label>
+                <div className="username">
+                    <label className="user__label" htmlFor="username">Username</label>
                     <span className="input">
-                        <input name="email" type="text" placeholder="" />
+                        <input name="username" type="text" placeholder="Type username..." />
                     </span>
                 </div>
 
                 <div className="password">
-                    <label htmlFor="password">Password</label>
+                    <label className="pass__label" htmlFor="password">Password</label>
                     <span className="input">
-                        <input name="password" type="password" placeholder="" />
+                        <input name="password" type="password" placeholder="Type password.." />
                     </span>
                 </div>
 
                 <div className="rePass">
-                    <label htmlFor="rePass">Repeat password</label>
+                    <label className="rePass__label" htmlFor="rePass">Repeat password</label>
                     <span className="input">
-                        <input name="rePass" type="password" placeholder="" />
+                        <input name="rePass" type="password" placeholder="Repeat password..." />
                     </span>
                 </div>
 
-                <input type="submit" value="Register" />
-            </fieldset>
+                <input className="submit__btn" type="submit" value="REGISTER" />
+            </div>
         </form>
     );
 }

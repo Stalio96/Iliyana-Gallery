@@ -14,7 +14,7 @@ const Login = () => {
 
         const formData = new FormData(e.currentTarget);
 
-        const email = formData.get('email');
+        const email = formData.get('username');
         const password = formData.get('password');
 
         authService.login(email, password)
@@ -25,12 +25,12 @@ const Login = () => {
     }
     return (
         <form className="login" onSubmit={onLoginHandler} method="POST">
-            <div className="field">
+            <div className="login__field">
                 <legend>Login Form</legend>
                 <div className="username">
                     <label className="user__label" htmlFor="username">Username</label>
                     <span className="input">
-                        <input name="email" type="text" placeholder="Type username..." />
+                        <input name="username" type="text" placeholder="Type username..." />
                     </span>
                 </div>
 
