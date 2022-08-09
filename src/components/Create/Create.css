@@ -1,12 +1,12 @@
-.login {
-    height: 562px;
+.create {
+    height: 662px;
 
     width: 100%;
 
     padding-top: 50px;
 }
 
-.login__field {
+.create__field {
     background-color: #000002;
 
     display: inline-block;
@@ -15,8 +15,8 @@
 
     padding: 40px 25px;
 
-    height: 320px;
-    width: 450px;
+    height: 560px;
+    width: 449px;
 
     border-radius: 25px;
 }
@@ -30,26 +30,24 @@ legend {
     margin-bottom: 50px;
 }
 
-.username,
-.password {
+.name,
+.date,
+.image,
+.description,
+.album {
     display: flex;
     flex-direction: column;
 
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 
     width: 100%;
 }
 
-.user__label {
-    font-weight: 500;
-    font-size: 25px;
-
-    margin-bottom: 10px;
-
-    color: white;
-}
-
-.pass__label {
+.name__label,
+.date__label,
+.image__label,
+.description__label,
+.album__label {
     font-weight: 500;
     font-size: 25px;
 
@@ -76,33 +74,4 @@ input {
 ::placeholder {
     color: white;
     opacity: 100;
-}
-
-.submit__btn {
-    width: 150px;
-    height: 50px;
-
-    display: block;
-
-    margin: 0 auto;
-
-    border: none;
-    border-radius: 50px;
-
-    cursor: pointer;
-
-    font-size: 20px;
-    font-weight: 700;
-
-    background-color: #ffe624;
-
-    color: #000002;
-}
-
-.submit__btn:hover {
-    border: 2px solid white;
-
-    background-color: #000002;
-
-    color: white;
 }

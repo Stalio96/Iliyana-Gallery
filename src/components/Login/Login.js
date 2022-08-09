@@ -41,7 +41,7 @@ const Login = () => {
                     </span>
                 </div>
 
-                <input className="submit__btn" type="submit" value="Login" />
+                <input className="submit__btn" type="submit" value="LOGIN" />
             </div>
         </form>
     );

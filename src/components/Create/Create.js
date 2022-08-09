@@ -3,6 +3,8 @@ import { useAuthContext } from "../../contexts/AuthContext";
 
 import * as photoService from '../../services/photoService';
 
+import './Create.css';
+
 const Create = () => {
     const { user } = useAuthContext();
     const navigate = useNavigate();
@@ -34,41 +36,41 @@ const Create = () => {
 
     return (
         <form className="create" onSubmit={onCreateHandler} method="POST">
-            <fieldset>
-                <legend>Edit photo</legend>
+            <div className="create__field">
+                <legend>Create photo</legend>
                 <div className="name">
-                    <label htmlFor="name">Name</label>
+                    <label className="name__label" htmlFor="name">Name</label>
                     <span className="input">
-                        <input name="name" type="text" placeholder="" />
+                        <input name="name" type="text" placeholder="Type name..." />
                     </span>
                 </div>
                 <div className="date">
-                    <label htmlFor="date">Date</label>
+                    <label className="date__label" htmlFor="date">Date</label>
                     <span className="input">
-                        <input name="date" type="text" placeholder="" />
+                        <input name="date" type="text" placeholder="Type date..." />
                     </span>
                 </div>
                 <div className="image">
-                    <label htmlFor="image">Image</label>
+                    <label className="image__label" htmlFor="image">Image</label>
                     <span className="input">
-                        <input name="image" type="text" placeholder="" />
+                        <input name="image" type="text" placeholder="Type image..." />
                     </span>
                 </div>
                 <div className="description">
-                    <label htmlFor="description">Description</label>
+                    <label className="description__label" htmlFor="description">Description</label>
                     <span className="input">
-                        <input name="description" type="text" placeholder="" />
+                        <input name="description" type="text" placeholder="Type description..." />
                     </span>
                 </div>
                 <div className="album">
-                    <label htmlFor="album">Album</label>
+                    <label className="album__label" htmlFor="album">Album</label>
                     <span className="input">
-                        <input name="album" type="text" placeholder="" />
+                        <input name="album" type="text" placeholder="Type album..." />
                     </span>
                 </div>
 
-                <input type="submit" value="Edit" />
-            </fieldset>
+                <input className="submit__btn" type="submit" value="ADD" />
+            </div>
         </form>
     );
 }
