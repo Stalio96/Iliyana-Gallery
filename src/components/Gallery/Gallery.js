@@ -19,7 +19,7 @@ const Gallery = () => {
 
     return (
         <section>
-            <h1>Photos</h1>
+            <h1>Gallery</h1>
 
             {photos.length > 0
                 ? <ul>
