@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 const PhotoCard = ({
     photo
 }) => {
+
+    console.log(photo)
     return (
         <li>
             <h3>Name: {photo.name}</h3>

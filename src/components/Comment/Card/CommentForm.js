@@ -3,7 +3,9 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useAuthContext } from '../../../contexts/AuthContext';
 import * as commentService from '../../../services/commentService';
 
-const CommentForm = () => {
+const CommentForm = ({
+    create
+}) => {
     const navigate = useNavigate();
     const { user } = useAuthContext();
     const { photoId } = useParams();
@@ -16,13 +18,15 @@ const CommentForm = () => {
         let comment = formData.get('comment');
         const ownerId = user._id;
 
-        commentService.createComment({
-            comment,
-            ownerId,
-            photoId
-        }).then(() => {
-            e.target.reset();
-        });
+        // commentService.createComment({
+        //     comment,
+        //     ownerId,
+        //     photoId
+        // }).then(() => {
+        //     e.target.reset();
+        // });
+        
+        create(comment, ownerId, e)
 
     }
 

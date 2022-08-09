@@ -9,6 +9,7 @@ import Gallery from './components/Gallery';
 import Contacts from './components/Contacts';
 import Create from './components/Create';
 import Edit from './components/Edit/Edit';
+import Favorite from './components/Favorite';
 import Search from './components/Search';
 import Details from './components/Details';
 import Login from './components/Login';
@@ -34,6 +35,7 @@ function App() {
             <Route path='/contacts' element={<Contacts />} />
             <Route path='/create' element={<Create />} />
             <Route path='/search' element={<Search />} />
+            <Route path='/favorite' element={<Favorite />} />
             <Route path='/edit/:photoId' element={<Edit />} />
           </Routes>
         </main>

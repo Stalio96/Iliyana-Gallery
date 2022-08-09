@@ -4,16 +4,20 @@ import { useState } from 'react';
 
 const CommentCard = ({
     comment,
-    userId
+    userId,
+    reRender
 }) => {
     const navigate = useNavigate();
     let [editInput, setEditInput] = useState(false);
+
 
     const deleteHandler = () => {
         commentService.deleteComment(comment._id)
             .then(() => {
                 // navigate('/gallery');
             })
+
+        reRender();
     }
 
     // const editHandler = (e) => {

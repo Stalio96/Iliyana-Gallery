@@ -1,5 +1,5 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 import { useAuthContext } from '../../contexts/AuthContext';
 
@@ -13,26 +13,24 @@ const Details = () => {
     const { user } = useAuthContext();
     const { photoId } = useParams();
     const [photo, setPhoto] = useState();
-    const [comments, setComments] = useState([]);
+    
 
-    useEffect(() => {
-        commentService.getComments(photoId)
-            .then(comment => {
-                setComments(comment);
-            });
-    }, []);
+
+        
+
+
 
     useEffect(() => {
         photoService.getById(photoId)
-        .then(photoData => {
-            // console.log(photoData)
-            setPhoto(photoData);
-        });
+            .then(photoData => {
+                // console.log(photoData)
+                setPhoto(photoData);
+            });
 
         photoService.getMyPhoto(user._id)
-        .then(data => {
-            // console.log(data)
-        }) 
+            .then(data => {
+                // console.log(data)
+            })
     }, [])
 
     const deleteHandler = (e) => {
@@ -87,7 +85,7 @@ const Details = () => {
                     : guest
             }
 
-            <Comment comments={comments} userId={user._id} user={user.email} />
+            <Comment photoId={photoId} userId={user._id} user={user.email} />
             {/* <div className="comment">
                 <form onClick={commentHandler} method="POST">
                     <textarea type="text" name="comment" />

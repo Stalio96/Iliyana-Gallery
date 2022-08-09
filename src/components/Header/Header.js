@@ -24,7 +24,7 @@ const Header = () => {
                 <Link className="item__link" to="/contacts">Contacts</Link>
             </li>
             <li className="header__item">
-                <Link className="item__link" to="/gallery">Gallery</Link>
+                <Link className="item__link" to="/favorite">Favorite</Link>
             </li>
             <li className="header__item">
                 <Link className="item__link" to="/create">Create</Link>
@@ -41,8 +41,13 @@ const Header = () => {
             <Link className="header__title" to="/home">Iliyana's photos</Link>
             <ul className="header__items">
                 <li className="header__item">
-                    <Link className="item__link" to="/home">Home</Link>
                     <Link className="item__link" to="/search"><i className="fa-solid fa-magnifying-glass"></i></Link>
+                </li>
+                <li className="header__item">
+                    <Link className="item__link" to="/home">Home</Link>
+                </li>
+                <li className="header__item">
+                    <Link className="item__link" to="/gallery">Gallery</Link>
                 </li>
                 {user.email
                     ? client
