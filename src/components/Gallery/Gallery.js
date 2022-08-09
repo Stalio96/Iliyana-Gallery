@@ -4,6 +4,8 @@ import * as photoService from '../../services/photoService';
 
 import PhotoCard from "./PhotoCard/PhotoCard";
 
+import './Gallery.css';
+
 const Gallery = () => {
     let [photos, setPhotos] = useState([]);
 
@@ -19,7 +21,7 @@ const Gallery = () => {
 
     return (
         <section>
-            <h1>Gallery</h1>
+            <h1 className="gallery__title">Gallery</h1>
 
             {photos.length > 0
                 ? <ul>
