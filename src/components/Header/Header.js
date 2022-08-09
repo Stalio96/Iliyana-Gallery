@@ -38,7 +38,7 @@ const Header = () => {
     return (
         <header className="header">
             <button className="bars"><i class="fa-solid fa-bars"></i></button>
-            <Link className="header__title" to="/home">Iliyana's photos</Link>
+            <Link className="header__title" to="/home">Iliyana photos</Link>
             <ul className="header__items">
                 <li className="header__item">
                     <Link className="item__link" to="/search"><i className="fa-solid fa-magnifying-glass"></i></Link>

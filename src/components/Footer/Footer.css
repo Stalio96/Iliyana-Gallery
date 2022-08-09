@@ -1,0 +1,49 @@
+footer {
+    background-color: #70726c;
+
+    padding: 20px;
+
+    gap: 50px;
+}
+
+.footer__container {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+
+    gap: 30px;
+}
+
+.footer__title a {
+    font-size: 40px;
+    text-decoration: none;
+
+    text-transform: uppercase;
+
+    font-weight: 700;
+
+    color: white;
+
+    transition: all 400ms ease-in-out;
+}
+
+.footer__title a:hover {
+    color: #ffe624;
+}
+
+.footer__decor {
+    height: 120px;
+
+    color: white;
+}
+
+.footer__decor__heading {
+    font-weight: 600;
+    font-size: 28px;
+
+    margin-bottom: 20px;
+}
+
+.footer__contact {
+    margin-bottom: 10px;
+}
