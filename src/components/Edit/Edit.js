@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 
 import * as photoService from '../../services/photoService';
 
+import './Edit.css';
+
 const Edit = () => {
     const navigate = useNavigate();
     const { photoId } = useParams();
@@ -23,7 +25,7 @@ const Edit = () => {
 
         const name = formData.get('name');
         const date = formData.get('date');
-        const img = formData.get('img');
+        const img = formData.get('image');
         const description = formData.get('description');
         const album = formData.get('album');
 
@@ -41,41 +43,41 @@ const Edit = () => {
 
     return (
         <form className="edit" onSubmit={onEditHandler} method="POST">
-            <fieldset>
-                <legend>Add photo</legend>
+            <div className="create__field">
+                <legend>Edit photo</legend>
                 <div className="name">
-                    <label htmlFor="name">Name</label>
+                    <label className="name__label" htmlFor="name">Name</label>
                     <span className="input">
                         <input name="name" type="text" defaultValue={photo.name} placeholder="" />
                     </span>
                 </div>
                 <div className="date">
-                    <label htmlFor="date">Date</label>
+                    <label className="date__label" htmlFor="date">Date</label>
                     <span className="input">
                         <input name="date" type="text" defaultValue={photo.date} placeholder="" />
                     </span>
                 </div>
-                <div className="img">
-                    <label htmlFor="img">Image</label>
+                <div className="image">
+                    <label className="image__label" htmlFor="image">Image</label>
                     <span className="input">
-                        <input name="img" type="text" defaultValue={photo.img} placeholder="" />
+                        <input name="image" type="text" defaultValue={photo.img} placeholder="" />
                     </span>
                 </div>
                 <div className="description">
-                    <label htmlFor="description">Description</label>
+                    <label className="description__label" htmlFor="description">Description</label>
                     <span className="input">
                         <input name="description" type="text" defaultValue={photo.description} placeholder="" />
                     </span>
                 </div>
                 <div className="album">
-                    <label htmlFor="album">Album</label>
+                    <label className="album__label" htmlFor="album">Album</label>
                     <span className="input">
                         <input name="album" type="text" defaultValue={photo.album} placeholder="" />
                     </span>
                 </div>
 
-                <input type="submit" value="EDIT" />
-            </fieldset>
+                <input className="submit__btn" type="submit" value="EDIT" />
+            </div>
         </form>
     );
 }

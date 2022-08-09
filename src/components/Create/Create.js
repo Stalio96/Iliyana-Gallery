@@ -37,7 +37,7 @@ const Create = () => {
     return (
         <form className="create" onSubmit={onCreateHandler} method="POST">
             <div className="create__field">
-                <legend>Create photo</legend>
+                <legend>Add photo</legend>
                 <div className="name">
                     <label className="name__label" htmlFor="name">Name</label>
                     <span className="input">

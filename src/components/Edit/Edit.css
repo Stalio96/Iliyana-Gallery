@@ -1,0 +1,77 @@
+.edit {
+    height: 662px;
+
+    width: 100%;
+
+    padding-top: 50px;
+}
+
+.create__field {
+    background-color: #000002;
+
+    display: inline-block;
+
+    margin: 0px 700px;
+
+    padding: 40px 25px;
+
+    height: 560px;
+    width: 449px;
+
+    border-radius: 25px;
+}
+
+legend {
+    font-weight: 600;
+    font-size: 28px;
+
+    color: white;
+
+    margin-bottom: 50px;
+}
+
+.name,
+.date,
+.image,
+.description,
+.album {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 10px;
+
+    width: 100%;
+}
+
+.name__label,
+.date__label,
+.image__label,
+.description__label,
+.album__label {
+    font-weight: 500;
+    font-size: 25px;
+
+    margin-bottom: 10px;
+
+    color: white;
+}
+
+input {
+    width: 97%;
+    height: 30px;
+
+    border: 1px solid white;
+
+    border-radius: 2px;
+
+    background-color: unset;
+
+    padding: 2px 5px;
+
+    color: white;
+}
+
+::placeholder {
+    color: white;
+    opacity: 100;
+}
