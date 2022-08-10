@@ -5,6 +5,8 @@ import * as photoService from '../../services/photoService';
 
 import PhotoCard from '../Gallery/PhotoCard/PhotoCard';
 
+import './Favorite.css';
+
 const Favorite = () => {
     const [favorite, setFavorite] = useState([]);
     const { user } = useAuthContext();
@@ -17,9 +19,12 @@ const Favorite = () => {
     }, []);
 
     return (
-        <>
-            {favorite.map(x => <PhotoCard photo={x} />)}
-        </>
+        <div className="favorite">
+            <h1 className="favorite__title">Favorite</h1>
+            <ul className="cardList">
+                {favorite.map(x => <PhotoCard photo={x} />)}
+            </ul>
+        </div>
     );
 }
 
