@@ -51,37 +51,37 @@ const Details = () => {
     }
 
     const owner = (
-        <>
-            <Link to={`/edit/${photoId}`}>EDIT</Link>
-            <Link to={`/delete/${photoId}`} onClick={deleteHandler}>DELETE</Link>
-        </>
+        <div className="owner">
+            <Link className="link" to={`/edit/${photoId}`}>EDIT</Link>
+            <Link className="link" to={`/delete/${photoId}`} onClick={deleteHandler}>DELETE</Link>
+        </div>
     );
 
     const guest = (
-        <>
-            <button onClick={likeHandler}>Add to favorite</button>
-            <button onClick={disLikeHandler}>Remove from favorite</button>
-        </>
+        <div className="guest">
+            <button className="btn" onClick={likeHandler}>Add to favorite</button>
+            <button className="btn" onClick={disLikeHandler}>Remove from favorite</button>
+        </div>
     );
 
     return (
-        <>
+        <div className="detail__page">
             <div className="details">
                 <div className="image__container">
-                    <img src={photo?.img} />
+                    <img className="photo" src={photo?.img} />
                 </div>
-                <h1>Name: {photo?.name}</h1>
-                <p>Description: {photo?.description}</p>
-                <p>Author: {photo?.owner.email}</p>
+                <div className="info">
+                    <h1 className="photo__name">Name: {photo?.name}</h1>
+                    <p className="photo__author">Author: {photo?.owner.email}</p>
+                    <p className="photo__desc">Description: {photo?.description}</p>
+                </div>
+                {user.email == ''
+                    ? null
+                    : user._id == photo?.owner._id
+                        ? owner
+                        : guest
+                }
             </div>
-
-
-            {user.email == ''
-                ? null
-                : user._id == photo?.owner._id
-                    ? owner
-                    : guest
-            }
 
             <Comment photoId={photoId} userId={user._id} user={user.email} />
             {/* <div className="comment">
@@ -90,7 +90,7 @@ const Details = () => {
                     <button type="submit">Add comment</button>
                 </form>
             </div> */}
-        </>
+        </div>
     );
 }
 

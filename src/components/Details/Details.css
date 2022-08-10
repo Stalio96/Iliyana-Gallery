@@ -1,11 +1,134 @@
+.detail__page {
+    padding: 50px 100px;
+}
+
 .details {
     width: 80%;
+    height: 600px;
 
     padding: 20px;
 
-    margin: 50px 50px;
+    margin: 50px 100px;
+
+    border-radius: 20px;
+
+    border: 10px solid black;
 
     display: flex;
 
+    position: relative;
+
     background-color: #70726c;
+}
+
+.image__container {
+    width: 70%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.photo {
+    width: 100%;
+
+}
+
+.info {
+    padding: 20px;
+}
+
+/* .photo__name {
+    color: white;
+} */
+
+.photo__author {
+    font-weight: 500;
+
+    font-size: 20px;
+
+    color: white;
+}
+
+.photo__desc {
+    font-weight: 500;
+
+    font-size: 20px;
+
+    color: white;
+}
+
+
+.guest,
+.owner {
+    position: absolute;
+
+    top: 570px;
+    left: 1100px;
+
+    display: flex;
+    gap: 10px;
+}
+
+.link {
+    text-decoration: none;
+
+    padding: 10px 20px;
+
+    border-radius: 20px;
+
+    font-weight: 500;
+
+    color: white;
+
+    transition: all 400ms ease-in-out;
+}
+
+
+.link:first-of-type {
+    background-color: greenyellow;
+}
+
+.link:last-of-type {
+    background-color: red;
+}
+
+.link:hover {
+    background-color: unset;
+
+    color: black;
+
+    border: 2px solid black;
+}
+
+.btn {
+    padding: 5px 10px;
+
+    font-size: 13px;
+
+    border-radius: 20px;
+    border: none;
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 400ms ease-in-out;
+}
+
+
+.btn:first-of-type {
+    background-color: greenyellow;
+}
+
+.btn:last-of-type {
+    background-color: red;
+}
+
+.btn:hover {
+    background-color: unset;
+
+    color: black;
+
+    border: 2px solid black;
 }
