@@ -1,0 +1,11 @@
+.details {
+    width: 80%;
+
+    padding: 20px;
+
+    margin: 50px 50px;
+
+    display: flex;
+
+    background-color: #70726c;
+}

@@ -1,0 +1,11 @@
+.home {
+    height: 562px;
+
+    padding: 50px;
+}
+
+iframe {
+    display: block;
+
+    margin: 50px auto;
+}

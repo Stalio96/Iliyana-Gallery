@@ -8,17 +8,13 @@ import Comment from "../Comment";
 import * as photoService from '../../services/photoService';
 import * as commentService from '../../services/commentService';
 
+import './Details.css';
+
 const Details = () => {
     const navigate = useNavigate();
     const { user } = useAuthContext();
     const { photoId } = useParams();
     const [photo, setPhoto] = useState();
-    
-
-
-        
-
-
 
     useEffect(() => {
         photoService.getById(photoId)
@@ -70,9 +66,11 @@ const Details = () => {
 
     return (
         <>
-            <div>
+            <div className="details">
+                <div className="image__container">
+                    <img src={photo?.img} />
+                </div>
                 <h1>Name: {photo?.name}</h1>
-                <img src={photo?.img} />
                 <p>Description: {photo?.description}</p>
                 <p>Author: {photo?.owner.email}</p>
             </div>
