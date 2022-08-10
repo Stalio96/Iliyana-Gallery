@@ -1,14 +1,14 @@
 .card {
-    background-color: #70726c;
+    background-color: white;
 
     list-style: none;
 
-    width: 95%;
+    width: 440px;
+    /* height: 300px; */
 
-    border-radius: 20px;
+    padding: 10px;
 
-    padding-top: 10px;
-    padding-bottom: 10px;
+    border: 10px solid black;
 
     margin-bottom: 10px;
 }
@@ -23,7 +23,7 @@
     width: 100%;
 }
 
-.card a {
+/* .card a {
     width: 100px;
     height: 30px;
 
@@ -57,4 +57,4 @@
     background-color: #000002;
 
     color: white;
-}
+} */

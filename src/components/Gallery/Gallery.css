@@ -1,7 +1,17 @@
 section {
-    padding: 50px;
+    padding: 100px;
 }
 
 .gallery__title {
     font-size: 50px;
+}
+
+.cardList {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    flex-wrap: wrap;
+
+    gap: 100px;
 }

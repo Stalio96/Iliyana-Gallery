@@ -24,7 +24,7 @@ const Gallery = () => {
             <h1 className="gallery__title">Gallery</h1>
 
             {photos.length > 0
-                ? <ul>
+                ? <ul className="cardList">
                     {photos.map(x => <PhotoCard key={x._id} photo={x} />)}
                 </ul>
                 : <p>No photos in database!</p>
