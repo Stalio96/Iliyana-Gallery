@@ -5,6 +5,8 @@ import { useEffect, useState, useReducer, useCallback } from 'react';
 
 import * as commentService from '../../services/commentService';
 
+import './Comment.css';
+
 const Comment = ({
     userId,
     user,
@@ -32,8 +34,10 @@ const Comment = ({
 
 
     return (
-        <div>
-            {comments.map(x => <CommentCard comment={x} userId={userId} key={x._id} />)}
+        <div className="comment__container">
+            <div className="card__container">
+                {comments.map(x => <CommentCard comment={x} userId={userId} key={x._id} />)}
+            </div>
 
             {user
                 ? <CommentForm create={create} />

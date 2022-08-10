@@ -13,6 +13,12 @@
     margin-bottom: 10px;
 }
 
+.card:hover {
+    background-color: #ffe624;
+
+    transition: all 400ms ease-in-out;
+}
+
 .card__name {
     text-align: center;
 

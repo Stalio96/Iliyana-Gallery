@@ -1,0 +1,23 @@
+.comment__container {
+    background-color: #70726c;
+
+    display: block;
+
+    width: 50%;
+    height: 500px;
+
+    border: 10px solid black;
+    border-radius: 20px;
+
+    padding: 0 20px;
+
+    margin: 0 auto;
+}
+
+.card__container {
+    background-color: white;
+
+    height: 80%;
+
+    overflow: scroll;
+}
