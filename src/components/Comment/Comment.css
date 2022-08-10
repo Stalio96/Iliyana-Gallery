@@ -9,7 +9,7 @@
     border: 10px solid black;
     border-radius: 20px;
 
-    padding: 0 20px;
+    /* padding: 0 20px; */
 
     margin: 0 auto;
 }
@@ -19,5 +19,7 @@
 
     height: 80%;
 
-    overflow: scroll;
+    overflow-y: scroll;
+
+    border-bottom: 10px solid black;
 }
