@@ -1,0 +1,56 @@
+.commentForm {
+    width: 100%;
+
+    padding: 10px;
+}
+
+.commentForm__form {
+    width: 100%;
+
+    position: relative;
+}
+
+.commentForm__text {
+    width: 95%;
+    height: 60px;
+
+    font-size: 20px;
+
+    color: black;
+    background-color: white;
+
+    border: 5px solid black;
+}
+
+::placeholder {
+    color: black;
+    opacity: 1;
+  }
+
+.commentForm__btn {
+    cursor: pointer;
+
+    border-radius: 100%;
+    border: none;
+
+    padding: 5px 7px;
+
+    position: absolute;
+
+    top: 25px;
+    right: 40px;
+
+    color: white;
+    background-color: #0000ff;
+
+    transition: all 400ms ease-in-out;
+}
+
+.commentForm__btn:hover {
+    color: #0000ff;
+    background-color: white;
+}
+
+.fa-arrow-right {
+    font-size: 20px;
+}

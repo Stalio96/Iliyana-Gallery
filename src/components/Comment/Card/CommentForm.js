@@ -3,6 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useAuthContext } from '../../../contexts/AuthContext';
 import * as commentService from '../../../services/commentService';
 
+import './CommentForm.css';
+
 const CommentForm = ({
     create
 }) => {
@@ -31,10 +33,10 @@ const CommentForm = ({
     }
 
     return (
-        <div className="comment">
-            <form onSubmit={commentHandler} method="POST">
-                <textarea type="text" name="comment" />
-                <button type="submit">Add comment</button>
+        <div className="commentForm">
+            <form className="commentForm__form" onSubmit={commentHandler} method="POST">
+                <input className="commentForm__text" type="text" name="comment" placeholder="Type..." />
+                <button className="commentForm__btn" type="submit"><i class="fa-solid fa-arrow-right"></i></button>
             </form>
         </div>
     );
