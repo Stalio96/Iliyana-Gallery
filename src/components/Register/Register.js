@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../contexts/AuthContext";
 
@@ -8,6 +9,7 @@ import './Register.css';
 const Register = () => {
     const { login } = useAuthContext();
     const navigate = useNavigate();
+    const [error, setError] = useState('');
 
     const onRegisterHandler = (e) => {
         e.preventDefault();
@@ -17,10 +19,13 @@ const Register = () => {
         const email = formData.get('username');
         const password = formData.get('password');
 
-        authService.register(email, password)
+        authService.register(email.trim(), password.trim())
             .then(authData => {
                 login(authData)
                 navigate('/home');
+            }).catch(err => {
+                console.log(err)
+                setError(err)
             })
     }
     return (

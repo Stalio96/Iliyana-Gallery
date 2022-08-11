@@ -1,5 +1,5 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 
 import { useAuthContext } from '../../contexts/AuthContext';
 
@@ -15,19 +15,25 @@ const Details = () => {
     const { user } = useAuthContext();
     const { photoId } = useParams();
     const [photo, setPhoto] = useState();
+    const [isFav, setIsFav] = useState('');
 
     useEffect(() => {
         photoService.getById(photoId)
             .then(photoData => {
-                // console.log(photoData)
                 setPhoto(photoData);
             });
 
         photoService.getMyPhoto(user._id)
             .then(data => {
-                // console.log(data)
+                data.forEach(element => {
+                    if (element._id == photoId) {
+                        setIsFav(true);
+                    } else {
+                        setIsFav(false);
+                    }
+                });
             })
-    }, [])
+    }, [isFav]);
 
     const deleteHandler = (e) => {
         e.preventDefault();
@@ -41,11 +47,15 @@ const Details = () => {
     const likeHandler = (e) => {
         e.preventDefault();
 
+        setIsFav(true);
+
         photoService.like(photoId, user._id)
     }
 
     const disLikeHandler = (e) => {
         e.preventDefault();
+
+        setIsFav(false);
 
         photoService.disLike(photoId, user._id)
     }
@@ -59,8 +69,10 @@ const Details = () => {
 
     const guest = (
         <div className="guest">
-            <button className="btn" onClick={likeHandler}>Add to favorite</button>
-            <button className="btn" onClick={disLikeHandler}>Remove from favorite</button>
+            {isFav
+                ? <button className="btn remove" onClick={disLikeHandler}>Remove from favorite</button>
+                : <button className="btn add" onClick={likeHandler}>Add to favorite</button>
+            }
         </div>
     );
 

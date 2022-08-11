@@ -1,6 +1,3 @@
-import { useNavigate } from "react-router-dom";
-import { useState } from 'react';
-
 import * as commentService from '../../../services/commentService';
 
 import './CommentCard.css';
@@ -10,10 +7,6 @@ const CommentCard = ({
     userId,
     reRender
 }) => {
-    const navigate = useNavigate();
-    let [editInput, setEditInput] = useState(false);
-
-
     const deleteHandler = () => {
         commentService.deleteComment(comment._id)
             .then(() => {
@@ -36,16 +29,9 @@ const CommentCard = ({
     const author = (
         <>
             {/* <button>Edit</button> */}
-            <button className="delete__btn" onClick={deleteHandler}><i class="fa-solid fa-x"></i></button>
+            <button className="delete__btn" onClick={deleteHandler}><i className="fa-solid fa-x"></i></button>
         </>
     );
-
-    // const editButton = (
-    //     <form className='editComment' method='PUT' onSubmit={editHandler}>
-    //         <input htmlFor="editText" type="text" />
-    //         <button type='submit'>Confirm</button>
-    //     </form>
-    // );
 
     return (
         <div className="commentCard__container">
@@ -58,11 +44,6 @@ const CommentCard = ({
                     ? author
                     : null
                 }
-
-            {/* {editInput
-                ? editButton
-                : null
-            } */}
         </div>
     );
 }

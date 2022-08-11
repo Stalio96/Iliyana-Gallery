@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import { useAuthContext } from "../../contexts/AuthContext";
 
 import * as authService from '../../services/authService';
@@ -8,6 +10,7 @@ import './Login.css';
 const Login = () => {
     const { login } = useAuthContext();
     const navigate = useNavigate();
+    const [error, setError] = useState('')
 
     const onLoginHandler = (e) => {
         e.preventDefault();
@@ -17,11 +20,21 @@ const Login = () => {
         const email = formData.get('username');
         const password = formData.get('password');
 
-        authService.login(email, password)
+        // if (email.trim().length < 3) {
+        //     validation = 1;
+        // } else if (email.trim().length > 8) {
+        //     validation = 2;
+        // } else {
+        //     validation = 0;
+        authService.login(email.trim(), password.trim())
             .then((authData) => {
                 login(authData)
                 navigate('/home')
+            }).catch((err) => {
+                console.log(err);
+                setError(err);
             });
+        // }
     }
     return (
         <form className="login" onSubmit={onLoginHandler} method="POST">
@@ -32,6 +45,14 @@ const Login = () => {
                     <span className="input">
                         <input name="username" type="text" placeholder="Type username..." />
                     </span>
+                    {/* {validation == 1 || validation == 2
+                        ? validation == 1
+                            ? <span className="error">Username must be at least 3 characters long.</span>
+                            : null
+                        : validation == 2
+                            ? <span className="error">Username must be max 8 characters long.</span>
+                            : null
+                    } */}
                 </div>
 
                 <div className="password">

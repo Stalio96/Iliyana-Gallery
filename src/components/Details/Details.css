@@ -117,11 +117,11 @@
 }
 
 
-.btn:first-of-type {
+.btn.add{
     background-color: greenyellow;
 }
 
-.btn:last-of-type {
+.btn.remove {
     background-color: red;
 }
 

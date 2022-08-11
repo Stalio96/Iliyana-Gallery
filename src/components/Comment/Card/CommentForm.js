@@ -36,7 +36,7 @@ const CommentForm = ({
         <div className="commentForm">
             <form className="commentForm__form" onSubmit={commentHandler} method="POST">
                 <input className="commentForm__text" type="text" name="comment" placeholder="Type..." />
-                <button className="commentForm__btn" type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+                <button className="commentForm__btn" type="submit"><i className="fa-solid fa-arrow-right"></i></button>
             </form>
         </div>
     );

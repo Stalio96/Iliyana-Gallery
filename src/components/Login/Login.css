@@ -106,3 +106,7 @@ input {
 
     color: white;
 }
+
+.error {
+    color: red;
+}

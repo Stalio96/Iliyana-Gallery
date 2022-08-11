@@ -22,7 +22,7 @@ const Favorite = () => {
         <div className="favorite">
             <h1 className="favorite__title">Favorite</h1>
             <ul className="cardList">
-                {favorite.map(x => <PhotoCard photo={x} />)}
+                {favorite.map(x => <PhotoCard photo={x} key={x._id} />)}
             </ul>
         </div>
     );

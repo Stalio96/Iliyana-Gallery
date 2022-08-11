@@ -14,7 +14,6 @@ const Comment = ({
 }) => {
     const [comments, setComments] = useState([]);
 
-
     const create = useCallback((comment, ownerId, e) => {
         commentService.createComment({
             comment,
@@ -30,8 +29,7 @@ const Comment = ({
             .then(comment => {
                 setComments(comment)
             })
-    }, [create])
-
+    }, [create]);
 
     return (
         <div className="comment__container">
