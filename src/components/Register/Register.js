@@ -39,8 +39,9 @@ const Register = () => {
                 login(authData)
                 navigate('/home');
             }).catch(err => {
+                console.log(err)
                 setError(err);
-            })
+            });
     }
     return (
         <form className="register" onSubmit={onRegisterHandler} method="POST">

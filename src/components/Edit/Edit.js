@@ -10,6 +10,7 @@ const Edit = () => {
     const navigate = useNavigate();
     const { photoId } = useParams();
     const [photo, setPhoto] = useState([]);
+    const [error, setError] = useState('');
 
     useEffect(() => {
         photoService.getById(photoId)
@@ -29,22 +30,39 @@ const Edit = () => {
         const description = formData.get('description');
         const album = formData.get('album');
 
-            photoService.edit(photoId, {
-                name,
-                date,
-                img,
-                description,
-                album
-            })
-                .then(() => {
-                    navigate(`/details/${photoId}`);
-                });
+        if (name.trim() == '' || date.trim() == '' || img.trim() == '' || description.trim() == '' || album.trim() == '') {
+            setError('All field are required!');
+            throw Error('All field are required!');
+        } else if (name.length < 3 || name.length > 8) {
+            setError('Name must be between 3 and 8 characters long');
+            throw Error('Name must be between 3 and 8 characters long');
+        } else if (description.length > 40) {
+            setError('Description must be max 40 characters long');
+            throw Error('Description must be max 40 characters long');
+        }
+
+        photoService.edit(photoId, {
+            name,
+            date,
+            img,
+            description,
+            album
+        }).then(() => {
+            navigate(`/details/${photoId}`);
+        }).catch(err => {
+            setError(err)
+        });
     };
 
     return (
         <form className="edit" onSubmit={onEditHandler} method="POST">
             <div className="create__field">
                 <legend>Edit photo</legend>
+                {
+                    error.length != 0
+                        ? <span className="error">{error}</span>
+                        : null
+                }
                 <div className="name">
                     <label className="name__label" htmlFor="name">Name</label>
                     <span className="input">

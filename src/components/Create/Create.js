@@ -45,7 +45,7 @@ const Create = () => {
         }).then(result => {
             navigate('/gallery');
         }).catch(err => {
-            setError(err)
+            setError(err);
         });
     }
 
