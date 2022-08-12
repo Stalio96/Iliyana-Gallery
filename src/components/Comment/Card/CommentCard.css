@@ -44,3 +44,10 @@ h3 {
 
     color: red;
 }
+
+.date__delete {
+    display: flex;
+
+    flex-direction: column;
+    align-items: flex-end;
+}

@@ -76,6 +76,10 @@ const Details = () => {
         </div>
     );
 
+    let created = new Date(photo?.created_at);
+
+    let date = created.getDate() + "-" + parseInt(created.getMonth() + 1) + "-" + created.getFullYear();
+
     return (
         <div className="detail__page">
             <div className="details">
@@ -83,6 +87,7 @@ const Details = () => {
                     <img className="photo" src={photo?.img} />
                 </div>
                 <div className="info">
+                    <p className="photo__date">Add at: {date}</p>
                     <h1 className="photo__name">Name: {photo?.name}</h1>
                     <p className="photo__author">Author: {photo?.owner.email}</p>
                     <p className="photo__desc">Description: {photo?.description}</p>

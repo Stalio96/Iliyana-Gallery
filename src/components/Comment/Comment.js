@@ -1,7 +1,7 @@
 import CommentCard from "./Card/CommentCard";
 import CommentForm from "./Card/CommentForm";
 
-import { useEffect, useState, useReducer, useCallback } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 import * as commentService from '../../services/commentService';
 
@@ -13,6 +13,14 @@ const Comment = ({
     photoId
 }) => {
     const [comments, setComments] = useState([]);
+    let counter = 0;
+    let counter2 = 0;
+
+    console.log(counter)
+    const render = () => {
+        counter2++;
+        counter = counter2
+    }
 
     const create = useCallback((comment, ownerId, e) => {
         commentService.createComment({
@@ -20,6 +28,8 @@ const Comment = ({
             ownerId,
             photoId
         }).then(() => {
+            render();
+            console.log(counter)
             e.target.reset();
         });
     }, [commentService.createComment])
@@ -29,7 +39,7 @@ const Comment = ({
             .then(comment => {
                 setComments(comment)
             })
-    }, [create]);
+    }, [counter]);
 
     return (
         <div className="comment__container">

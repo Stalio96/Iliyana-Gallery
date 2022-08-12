@@ -14,7 +14,7 @@
 }
 
 .card:hover {
-    background-color: #ffe624;
+    background-color: hsl(279deg 100% 64%);
 
     transition: all 400ms ease-in-out;
 }

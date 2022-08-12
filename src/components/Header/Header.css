@@ -35,7 +35,7 @@
 }
 
 .header__title:hover {
-    color: #ffe624;
+    color: hsl(279deg 100% 64%);
 }
 
 .header__items {
@@ -59,7 +59,8 @@
 }
 
 .item__link:hover {
-    color: #ffe624;
+    /* color: #ffe624; */
+    color: hsl(279deg 100% 64%);
 }
 
 .bars {
@@ -84,4 +85,6 @@
 
 .header__item.name {
     color: #ffffff;
+
+    margin: 0px;
 }

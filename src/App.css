@@ -5,5 +5,17 @@ body {
   font-family: 'Montserrat', sans-serif;
   margin-top: 70px;
 
-  background-color: #ffe624;
+  height: auto;
+
+  /* background-color: #ffe624; */
+
+  background: hsla(197, 100%, 63%, 1);
+
+  background: linear-gradient(90deg, hsla(197, 100%, 63%, 1) 0%, hsla(294, 100%, 55%, 1) 100%);
+
+  background: -moz-linear-gradient(90deg, hsla(197, 100%, 63%, 1) 0%, hsla(294, 100%, 55%, 1) 100%);
+
+  background: -webkit-linear-gradient(90deg, hsla(197, 100%, 63%, 1) 0%, hsla(294, 100%, 55%, 1) 100%);
+
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#40C9FF", endColorstr="#E81CFF", GradientType=1);
 }

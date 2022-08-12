@@ -18,20 +18,39 @@ const Register = () => {
 
         const email = formData.get('username');
         const password = formData.get('password');
+        const rePass = formData.get('rePass');
+
+        if(email.trim() == '' || password.trim() == '' || rePass.trim() == ''){
+            setError('All field are required!');
+            throw Error('All field are required!');
+        }else if (email.length < 3 || email.length > 8) {
+            setError('Username must be between 3 and 8 characters long');
+            throw Error('Username must be between 3 and 8 characters long');
+        } else if (password.length < 3 || password.length > 8) {
+            setError('Password must be between 3 and 8 characters long');
+            throw Error('Password must be between 3 and 8 characters long');
+        } else if (password != rePass) {
+            setError("Passwords don't match");
+            throw new Error("Passwords don't match");
+        }
 
         authService.register(email.trim(), password.trim())
             .then(authData => {
                 login(authData)
                 navigate('/home');
             }).catch(err => {
-                console.log(err)
-                setError(err)
+                setError(err);
             })
     }
     return (
         <form className="register" onSubmit={onRegisterHandler} method="POST">
             <div className="field">
                 <legend>Register Form</legend>
+                {
+                    error.length != 0
+                        ? <span className="error">{error}</span>
+                        : null
+                }
                 <div className="username">
                     <label className="user__label" htmlFor="username">Username</label>
                     <span className="input">

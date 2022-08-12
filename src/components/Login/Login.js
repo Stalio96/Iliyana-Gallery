@@ -20,12 +20,17 @@ const Login = () => {
         const email = formData.get('username');
         const password = formData.get('password');
 
-        // if (email.trim().length < 3) {
-        //     validation = 1;
-        // } else if (email.trim().length > 8) {
-        //     validation = 2;
-        // } else {
-        //     validation = 0;
+        if(email.trim() == '' || password.trim() == ''){
+            setError('All field are required!');
+            throw Error('All field are required!');
+        }else if (email.length < 3 || email.length > 8) {
+            setError('Username must be between 3 and 8 characters long');
+            throw Error('Username must be between 3 and 8 characters long');
+        } else if (password.length < 3 || password.length > 8) {
+            setError('Password must be between 3 and 8 characters long');
+            throw Error('Password must be between 3 and 8 characters long');
+        }
+
         authService.login(email.trim(), password.trim())
             .then((authData) => {
                 login(authData)
@@ -40,19 +45,16 @@ const Login = () => {
         <form className="login" onSubmit={onLoginHandler} method="POST">
             <div className="login__field">
                 <legend>Login Form</legend>
+                {
+                    error.length != 0
+                        ? <span className="error">{error}</span>
+                        : null
+                }
                 <div className="username">
                     <label className="user__label" htmlFor="username">Username</label>
                     <span className="input">
                         <input name="username" type="text" placeholder="Type username..." />
                     </span>
-                    {/* {validation == 1 || validation == 2
-                        ? validation == 1
-                            ? <span className="error">Username must be at least 3 characters long.</span>
-                            : null
-                        : validation == 2
-                            ? <span className="error">Username must be max 8 characters long.</span>
-                            : null
-                    } */}
                 </div>
 
                 <div className="password">

@@ -4,34 +4,26 @@ import './CommentCard.css';
 
 const CommentCard = ({
     comment,
-    userId,
-    reRender
+    userId
 }) => {
     const deleteHandler = () => {
         commentService.deleteComment(comment._id)
             .then(() => {
                 // navigate('/gallery');
-            })
-
-        reRender();
+            });
     }
 
-    // const editHandler = (e) => {
-    //     e.preventDefault();
-    //     const formData = new FormData(e.currentTarget);
-
-    //     console.log(e.currentTarget);
-
-    //     const editText = formData.get('editText');
-
-    // }
+    console.log(comment)
 
     const author = (
         <>
-            {/* <button>Edit</button> */}
             <button className="delete__btn" onClick={deleteHandler}><i className="fa-solid fa-x"></i></button>
         </>
     );
+
+    let created = new Date(comment?.created_at);
+
+    let date = created.getDate() + "-" + parseInt(created.getMonth() + 1) + "-" + created.getFullYear();
 
     return (
         <div className="commentCard__container">
@@ -40,10 +32,13 @@ const CommentCard = ({
                 <p>{comment?.comment}</p>
 
             </div>
+            <div className="date__delete">
                 {userId == comment.ownerId._id
                     ? author
                     : null
                 }
+                <p>{date}</p>
+            </div>
         </div>
     );
 }
