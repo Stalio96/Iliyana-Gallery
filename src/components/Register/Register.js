@@ -36,11 +36,15 @@ const Register = () => {
 
         authService.register(email.trim(), password.trim())
             .then(authData => {
+                if(authData.message == 'This user is already registered!') {
+                    throw Error('Username is taken');
+                }
+                console.log(authData)
                 login(authData)
                 navigate('/home');
             }).catch(err => {
                 console.log(err)
-                setError(err);
+                setError(err.message);
             });
     }
     return (

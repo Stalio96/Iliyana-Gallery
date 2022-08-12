@@ -13,7 +13,7 @@ const CommentCard = ({
             });
     }
 
-    console.log(comment)
+    
 
     const author = (
         <>

@@ -36,7 +36,7 @@ const Login = () => {
                 login(authData)
                 navigate('/home')
             }).catch((err) => {
-                console.log(err);
+
                 setError(err);
             });
         // }

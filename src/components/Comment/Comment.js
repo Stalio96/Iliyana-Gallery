@@ -16,7 +16,6 @@ const Comment = ({
     let counter = 0;
     let counter2 = 0;
 
-    console.log(counter)
     const render = () => {
         counter2++;
         counter = counter2
@@ -29,7 +28,6 @@ const Comment = ({
             photoId
         }).then(() => {
             render();
-            console.log(counter)
             e.target.reset();
         });
     }, [commentService.createComment])
