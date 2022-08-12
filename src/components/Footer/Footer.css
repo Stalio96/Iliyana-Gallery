@@ -30,7 +30,7 @@ footer {
 }
 
 .footer__title a:hover {
-    color: #ffe624;
+    color: hsla(197, 100%, 63%, 1);
 }
 
 .footer__decor {
