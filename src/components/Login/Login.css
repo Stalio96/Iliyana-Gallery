@@ -11,7 +11,7 @@
 
     display: inline-block;
 
-    margin: 0px 700px;
+    margin: 0px calc((100% - 500px) / 2);
 
     padding: 40px 25px;
 
