@@ -40,8 +40,8 @@ const Register = () => {
                     throw Error('Username is taken');
                 }
                 console.log(authData)
-                login(authData)
-                navigate('/home');
+                // login(authData)
+                navigate('/login');
             }).catch(err => {
                 console.log(err)
                 setError(err.message);

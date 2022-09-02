@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3030';
+const baseUrl = 'https://desolate-river-84333.herokuapp.com';
 
 export async function getAll() {
     const response = await fetch(`${baseUrl}/data/catalog/all`);
