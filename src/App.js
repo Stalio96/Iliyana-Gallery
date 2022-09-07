@@ -26,7 +26,7 @@ function App() {
 
         <main>
           <Routes>
-            <Route path='/home' element={<Home />} />
+            <Route path='/Iliyana-Gallery' element={<Home />} />
             <Route path='/gallery' element={<Gallery />} />
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />

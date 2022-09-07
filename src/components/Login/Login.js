@@ -34,7 +34,7 @@ const Login = () => {
         authService.login(email.trim(), password.trim())
             .then((authData) => {
                 login(authData)
-                navigate('/home')
+                navigate('/Iliyana-Gallery')
             }).catch((err) => {
 
                 setError(err);
