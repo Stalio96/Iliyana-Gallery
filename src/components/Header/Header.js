@@ -44,7 +44,7 @@ const Header = () => {
                     <Link className="item__link" to="/search"><i className="fa-solid fa-magnifying-glass"></i></Link>
                 </li>
                 <li className="header__item">
-                    <Link className="item__link" to="/home">Home</Link>
+                    <Link className="item__link" to="/Iliyana-Gallery">Home</Link>
                 </li>
                 <li className="header__item">
                     <Link className="item__link" to="/gallery">Gallery</Link>

@@ -7,7 +7,7 @@ const Footer = () => {
         <footer>
             <div className="footer__container">
                 <div className="footer__title">
-                    <Link to="/home">Iliyana photos</Link>
+                    <Link to="/Iliyana-Gallery">Iliyana photos</Link>
                 </div>
                 <div className="footer__decor">
                     <div className="footer__decor__heading">
