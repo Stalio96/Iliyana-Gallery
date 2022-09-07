@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Iliyana-Gallery/static/css/main.b7c14063.css",
-    "main.js": "/Iliyana-Gallery/static/js/main.ecb5d735.js",
+    "main.js": "/Iliyana-Gallery/static/js/main.688e1ffd.js",
     "static/js/787.1dfaf27b.chunk.js": "/Iliyana-Gallery/static/js/787.1dfaf27b.chunk.js",
     "index.html": "/Iliyana-Gallery/index.html",
     "main.b7c14063.css.map": "/Iliyana-Gallery/static/css/main.b7c14063.css.map",
-    "main.ecb5d735.js.map": "/Iliyana-Gallery/static/js/main.ecb5d735.js.map",
+    "main.688e1ffd.js.map": "/Iliyana-Gallery/static/js/main.688e1ffd.js.map",
     "787.1dfaf27b.chunk.js.map": "/Iliyana-Gallery/static/js/787.1dfaf27b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b7c14063.css",
-    "static/js/main.ecb5d735.js"
+    "static/js/main.688e1ffd.js"
   ]
 }
